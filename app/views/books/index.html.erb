@@ -1,0 +1,17 @@
+<h1>家計簿一覧</h1>
+<table>
+    <tr>
+        <th>年月</th>
+        <th>収支</th>
+        <th>カテゴリー</th>
+        <th>金額</th>
+    </tr>
+    <% @books.each do |book| %>
+    <tr>
+        <th><%= book.year %>年<%= book.month %>月</th>
+        <th><%= book.inout %></th>
+        <th><%= book.category %></th>
+        <th><%= book.amount %>円</th>
+    </tr>
+    <% end %>
+</table>
