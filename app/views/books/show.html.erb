@@ -1,0 +1,20 @@
+<h1>家計簿詳細</h1>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>年月</th>
+        <td><%= @book.year %>年<%= @book.month %>月</td>
+    </tr>
+    <tr>
+        <th>収支</th>
+        <td><%= @book.inout %></td>
+    </tr>
+    <tr>
+        <th>カテゴリー</th>
+        <td><%= @book.category %></td>
+    </tr>
+    <tr>
+        <th>金額</th>
+        <td><%= @book.amount %></td>
+    </tr>
+    
+</table>
