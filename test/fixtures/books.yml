@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inout: 1
+  category: MyString
+  year: 1
+  month: 1
+  amount: 1
+
+two:
+  inout: 1
+  category: MyString
+  year: 1
+  month: 1
+  amount: 1
