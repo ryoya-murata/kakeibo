@@ -16,9 +16,13 @@ class BooksController < ApplicationController
         book_params = params.require(:book).permit(:year, :month, :inout, :category, :amount)
         # 新しいインスタンスの生成
         @book = Book.new(book_params)
-        @book.save
-        # 一覧画面へのリダイレクト
-        redirect_to books_path
+        if @book.save
+            # 一覧画面へのリダイレクト
+            redirect_to books_path
+        else
+            render :new
+        end
+        
     end
     
 end
