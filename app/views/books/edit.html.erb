@@ -1,0 +1,26 @@
+<h1>家計簿更新</h1>
+<%= form_with(model: @book, local: true, method: "patch") do |f| %>
+    <div class="form-group">
+        <%= f.label :year, "年度" %>
+        <%= f.number_field :year, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :month, "月" %>
+        <%= f.number_field :month, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :inout, "収支" %>
+        <%= f.select :inout, [["収入", 1], ["支出", 2]], {}, {class: "form-control"} %>
+    </div>
+    <div class="form-group">
+        <%= f.label :category, "カテゴリー" %>
+        <%= f.text_field :category, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :amount, "金額" %>
+        <%= f.number_field :amount, class: "form-control" %>
+    </div>
+    
+    <%= link_to "戻る", books_path, class: "btn btn-secondary" %>
+    <%= f.submit "更新", class: "btn btn-primary" %>
+<% end %>
