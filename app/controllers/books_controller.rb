@@ -31,7 +31,7 @@ class BooksController < ApplicationController
     
     def update
         # 該当データの検索
-        @book = Book.find(book_params)
+        @book = Book.find(params[:id])
         book_params = params.require(:book).permit(:year, :month, :inout, :category, :amount)
         if @book.update(book_params)
             # 一覧画面へのリダイレクト
@@ -39,6 +39,12 @@ class BooksController < ApplicationController
         else
             render :edit
         end
+    end
+    
+    def destroy
+        @book = Book.find(params[:id])
+        @book.destroy
+        redirect_to books_path
     end
     
 end
