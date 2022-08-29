@@ -22,7 +22,7 @@ class BooksController < ApplicationController
         # 新しいインスタンスの生成
         @book = Book.new(book_params)
         if @book.save
-            flash[:notice] = "家計簿に新規データを登録しました"
+            flash[:notice] = "家計簿に" + @book.year.to_s + "年" + @book.month.to_s + "月" + @book.category + "のデータを登録しました"
             # 一覧画面へのリダイレクト
             redirect_to books_path
         else
