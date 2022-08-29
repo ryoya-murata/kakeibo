@@ -18,7 +18,7 @@ class BooksController < ApplicationController
     end
     
     def create
-        book_params = params.require(:book).permit(:year, :month, :inout, :category, :amount)
+        book_params
         # 新しいインスタンスの生成
         @book = Book.new(book_params)
         if @book.save
@@ -38,8 +38,7 @@ class BooksController < ApplicationController
     
     def update
         set_book
-        # 該当データの検索
-        book_params = params.require(:book).permit(:year, :month, :inout, :category, :amount)
+        book_params
         if @book.update(book_params)
             flash[:notice] = "データを更新しました"
             # 詳細画面へのリダイレクト
@@ -62,6 +61,11 @@ class BooksController < ApplicationController
     
     def set_book
        @book = Book.find(params[:id]) 
+    end
+    
+    def book_params
+        # 該当データの検索
+        book_params = params.require(:book).permit(:year, :month, :inout, :category, :amount)
     end
     
 end
