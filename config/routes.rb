@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     # delete "/books/:id", to: "books#destroy"
     
     # routeの自動生成
-    resources :book
+    resources :books
 end
