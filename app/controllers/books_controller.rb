@@ -1,11 +1,14 @@
 class BooksController < ApplicationController
     
+    # 事前実行
+    before_action :set_book, only: [:show, :edit, :update, :destroy]
+    
     def index
         @books = Book.all
     end
     
     def show
-        @book = Book.find(params[:id])
+        set_book
     end
     
     def new
@@ -28,12 +31,12 @@ class BooksController < ApplicationController
     end
     
     def edit
-        @book = Book.find(params[:id])
+        set_book
     end
     
     def update
+        set_book
         # 該当データの検索
-        @book = Book.find(params[:id])
         book_params = params.require(:book).permit(:year, :month, :inout, :category, :amount)
         if @book.update(book_params)
             flash[:notice] = "データを更新しました"
@@ -46,10 +49,17 @@ class BooksController < ApplicationController
     end
     
     def destroy
-        @book = Book.find(params[:id])
+        set_book
         @book.destroy
         flash[:notice] = "データを削除しました"
         redirect_to books_path
+    end
+    
+    # このコントローラー内でしか使わないメソッド
+    private
+    
+    def set_book
+       @book = Book.find(params[:id]) 
     end
     
 end
