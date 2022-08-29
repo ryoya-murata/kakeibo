@@ -42,8 +42,8 @@ class BooksController < ApplicationController
         book_params = params.require(:book).permit(:year, :month, :inout, :category, :amount)
         if @book.update(book_params)
             flash[:notice] = "データを更新しました"
-            # 一覧画面へのリダイレクト
-            redirect_to books_path
+            # 詳細画面へのリダイレクト
+            redirect_to book_path
         else
             flash.now[:alert] = "データの更新に失敗しました"
             render :edit
