@@ -3,19 +3,19 @@
 <div class="card" style="margin-bottom: 20px;">
     <div class="card-body">
         <p>検索</p>
-        <%= form_with(local: true, method: "get") do |f| %>
-            <div class="form-row">
-                <div class="col">
-                    <%= f.number_field "year", placeholder: "年度を入力", class: "form-control" %>
-                </div>
-                <div class="col">
-                    <%= f.number_field "month", placeholder: "対象月を入力", class: "form-control" %>
-                </div>
-                <div class="col">
-                    <%= f.submit "検索", class: "btn btn-primary" %>
-                </div>
-            </div>
-        <% end %>
+        <%= form_with method: "get", local: true do |f| %>
+        <div class="form-row">
+          <div class="col">
+            <%= f.number_field "year", placeholder: "年度を入力", class: "form-control" %>
+          </div>
+          <div class="col">
+            <%= f.number_field "month", placeholder: "対象月を入力", class: "form-control" %>
+          </div>
+          <div class="col">
+            <%= f.submit "検索", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
     </div>
 </div>
 

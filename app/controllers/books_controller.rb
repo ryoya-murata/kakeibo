@@ -6,7 +6,7 @@ class BooksController < ApplicationController
     def index
         @books = Book.all
         @books = @books.where(year: params[:year]) if params[:year].present?
-        @books = @books.where(year: params[:month]) if params[:month].present?
+        @books = @books.where(month: params[:month]) if params[:month].present?
     end
     
     def show
