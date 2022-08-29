@@ -12,7 +12,8 @@
   </head>
 
   <body>
-    <!--フラッシュメッセージの表示-->
+    <div class="container">
+      <!--フラッシュメッセージの表示-->
     <% if flash[:notice] %>
       <div class="alert alert-success" role="alert">
         <%= flash[:notice] %>
@@ -26,6 +27,7 @@
     <% end %>
     
     <%= yield %>
+    </div>
   </body>
   
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
