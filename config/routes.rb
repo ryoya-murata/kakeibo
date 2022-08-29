@@ -10,8 +10,6 @@ Rails.application.routes.draw do
     # # 削除
     # delete "/books/:id", to: "books#destroy"
     
-    root "books#index"
-    
     # routeの自動生成
     resources :books
 end
