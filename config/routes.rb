@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-     root 'books#index'
+    root :to => 'books#index'
     
     get "/books", to: "books#index"
     # 新規作成
