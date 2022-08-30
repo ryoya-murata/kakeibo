@@ -1,6 +1,6 @@
 # Kakeibo_App
 
-# "Kakeibo_App" is an app that calculates your money income and expenses.
+"Kakeibo_App" is an app that calculates your money income and expenses.
 
  
 # Requirement
