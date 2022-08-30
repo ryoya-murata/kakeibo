@@ -6,7 +6,13 @@
     </tr>
     <tr>
         <th>収支</th>
-        <td><%= @book.inout %></td>
+        <td>
+            <% if @book.inout == 1 %>
+            収入
+            <% else %>
+            支出
+            <% end %>
+        </td>
     </tr>
     <tr>
         <th>カテゴリー</th>
