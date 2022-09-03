@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
     root :to => 'books#index'
     
+    # 家計簿データ
     get "/books", to: "books#index"
     # 新規作成
     post "/books", to: "books#create"
@@ -11,6 +12,10 @@ Rails.application.routes.draw do
     patch "/books/:id", to: "books#update"
     # 削除
     delete "/books/:id", to: "books#destroy"
+    
+    # 会員登録
+    get "/signup", to: "users#new"
+    post "/signup", to: "users#create"
     
     # routeの自動生成
     # resources :books
