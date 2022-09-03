@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     get "/signup", to: "users#new"
     post "/signup", to: "users#create"
     
+    # 会員ログイン
+    get "/login", to: "session#new"
+    post "/login", to: "session#create"
+    
     # routeの自動生成
     # resources :books
 end
