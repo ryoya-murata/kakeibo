@@ -12,6 +12,19 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-light bg-light">
+      <div>家計簿アプリ</div>
+      <div>
+        <!-- ログインしている場合 -->
+        <% if session[:user_id].present? %>
+          <%= link_to "ログアウト", logout_path, class: "btn btn-outline-secondary" %>
+        <% else %>
+          <%= link_to "会員登録", signup_path, class: "btn btn-outline-primary" %>
+        <% end %>
+      </div>
+    </nav>
+    
+    
     <div class="container">
       <!--フラッシュメッセージの表示-->
     <% if flash[:notice] %>

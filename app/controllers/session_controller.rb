@@ -1,12 +1,13 @@
 class SessionController < ApplicationController
     
-    before_action :redirect_to_books
+    before_action :redirect_to_books, only: [:new, :create]
     
     
     def new
         
     end
     
+    # ログイン
     def create
         user = User.find_by(email: params[:email])
         # userが存在し、パスワードが一致した場合
@@ -18,6 +19,12 @@ class SessionController < ApplicationController
             flash.now[:alert] = "ログインに失敗しました"
             render "new"
         end
+    end
+    
+    # ログアウト
+    def destroy
+        session[:user_id] = nil
+        redirect_to login_path
     end
     
     private

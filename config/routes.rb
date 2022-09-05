@@ -21,6 +21,9 @@ Rails.application.routes.draw do
     get "/login", to: "session#new"
     post "/login", to: "session#create"
     
+    # 会員ログアウト
+    get "/logout", to: "session#destroy"
+    
     # routeの自動生成
     # resources :books
 end
