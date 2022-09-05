@@ -2,6 +2,8 @@ class BooksController < ApplicationController
     
     # 事前実行
     before_action :set_book, only: [:show, :edit, :update, :destroy]
+    before_action :redirect_to_login
+    
     
     def index
         @books = Book.all
@@ -66,6 +68,10 @@ class BooksController < ApplicationController
     def book_params
         # 該当データの検索
         book_params = params.require(:book).permit(:year, :month, :inout, :category, :amount)
+    end
+    
+    def redirect_to_login
+        redirect_to login_path if session[:user_id].blank?
     end
     
 end
