@@ -70,8 +70,5 @@ class BooksController < ApplicationController
         book_params = params.require(:book).permit(:year, :month, :inout, :category, :amount)
     end
     
-    def redirect_to_login
-        redirect_to login_path if session[:user_id].blank?
-    end
     
 end

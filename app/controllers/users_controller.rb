@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
     
+    before_action :redirect_to_login, only:[:edit, :update]
+    
     def new
         @user = User.new
     end
