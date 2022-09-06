@@ -17,6 +17,7 @@
       <div>
         <!-- ログインしている場合 -->
         <% if session[:user_id].present? %>
+        <%= link_to "登録内容の更新", edit_user_path, class: "btn btn-outline-info" %>
           <%= link_to "ログアウト", logout_path, class: "btn btn-outline-secondary" %>
         <% else %>
           <%= link_to "会員登録", signup_path, class: "btn btn-outline-primary" %>
