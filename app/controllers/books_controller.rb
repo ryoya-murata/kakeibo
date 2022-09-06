@@ -5,10 +5,11 @@ class BooksController < ApplicationController
     before_action :redirect_to_login
     
     
+    
     def index
-        @books = Book.all
-        @books = @books.where(year: params[:year]) if params[:year].present?
-        @books = @books.where(month: params[:month]) if params[:month].present?
+       @books = Book.where(user_id: session[:user_id])
+       @books = @books.where(year: params[:year]) if params[:year].present?
+       @books = @books.where(month: params[:month]) if params[:month].present?
     end
     
     def show
@@ -20,7 +21,8 @@ class BooksController < ApplicationController
     end
     
     def create
-        book_params
+        book_params = params.require(:book).permit(:year, :month, :inout, :category, :amount)
+        book_params[:user_id] = session[:user_id]
         # 新しいインスタンスの生成
         @book = Book.new(book_params)
         if @book.save
@@ -58,17 +60,19 @@ class BooksController < ApplicationController
         redirect_to books_path
     end
     
+
+    
     # このコントローラー内でしか使わないメソッド
     private
     
     def set_book
-       @book = Book.find(params[:id]) 
+        @book = Book.where(user_id: session[:user_id]).find(params[:id])
     end
     
+
     def book_params
         # 該当データの検索
         book_params = params.require(:book).permit(:year, :month, :inout, :category, :amount)
     end
-    
     
 end

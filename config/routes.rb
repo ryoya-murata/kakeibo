@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-    root :to => 'books#index'
+    root to: 'books#index'
     
     # 家計簿データ
     get "/books", to: "books#index"
