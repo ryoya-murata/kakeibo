@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     # 会員ログアウト
     get "/logout", to: "session#destroy"
     
+    # 会員編集
+    get "users/:id/edit", to: "users#edit", as: "edit_user"
+    patch "users/:id", to: "users#update", as: "user"
+    
     # routeの自動生成
     # resources :books
 end
