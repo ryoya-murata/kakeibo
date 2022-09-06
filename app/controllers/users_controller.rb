@@ -20,11 +20,11 @@ class UsersController < ApplicationController
     end
     
     def edit
-        @user = User.find(params[:id])
+        @user = User.find(session[:user_id])
     end
     
     def update
-       @user = User.find(params[:id])
+       @user = User.find(params[:user_id])
        user_params = params.require(:user).permit(:name, :email)
        if @user.update(user_params)
            flash[:notice] = "更新しました"
